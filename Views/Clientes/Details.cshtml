@@ -1,0 +1,37 @@
+﻿@model AgendaTelefonica.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nome
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nm_cliente)
+        </dd>
+
+        <dt>
+            Telefone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ds_telefone)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit","Clientes", new { id = Model.id_cliente})">
+        <button class="btn btn-info">Editar</button>
+    </a>
+    <a href="@Url.Action("Index","Clientes")">
+        <button class="btn btn-warning">Voltar a Lista</button>
+    </a>
+</p>

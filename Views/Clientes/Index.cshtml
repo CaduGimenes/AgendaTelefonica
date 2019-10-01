@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AgendaTelefonica.Models.Cliente>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Clientes")">
+        <button class="btn btn-warning">Novo Cliente</button>
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Telefone
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nm_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ds_telefone)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", "Clientes", new { id = item.id_cliente })">
+                <button class="btn btn-success">Editar</button>
+            </a>
+            |
+            <a href="@Url.Action("Details", "Clientes", new { id = item.id_cliente })">
+                <button class="btn btn-info">Detalhes</button>
+            </a>
+            |
+            <a href="@Url.Action("Delete", "Clientes", new { id = item.id_cliente })">
+                <button class="btn btn-danger">Remover</button>
+            </a>
+           
+        </td>
+    </tr>
+}
+
+</table>
